@@ -1,5 +1,5 @@
 <x-layout :playlists="$playlists">
-    <div class="mx-auto bg-gradient-to-b from-gray-700 via-gray-900 to-black h-full p-12">
+    <div class="mx-auto h-full p-12 ">
         <form action="/storeplaylist" method="POST" class="grid grid-cols-[auto_1fr] w-full  gap-8" enctype="multipart/form-data">
 
             @csrf
@@ -12,8 +12,10 @@
                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                         <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                     </div>
-                    <input id="dropzone-file" type="file" name="image" class="hidden" />
-
+                    <input id="dropzone-file" type="file" name="image" value="{{old('image')}}" class="hidden" />
+                    {{-- @error('image')
+                        <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                    @enderror --}}
                 </label>
             </div>
             <div class="text-white flex flex-col justify-evenly h-full w-1/2">
@@ -21,11 +23,11 @@
                 <input type="text" name="name" placeholder="PlayList Name" class="py-2 px-4 rounded-xl bg-transparent border border-gray-400 outline-none">
 
                 {{-- load page if some field are wrong or error --}}
-                @error('image')
+                @error('name')
                     <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                 @enderror
 
-                {{-- <p class="font-bold underline cursor-pointer">{{auth()->user()->name}}</p> --}}
+                <p class="font-bold underline cursor-pointer">{{auth()->user()->name}}</p>
 
                 <div class="flex justify-center">
                     <button class="text-black border-2 border-black bg-yellow-400 hover:bg-yellow-700 font-semibold rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Add PlayList</button>

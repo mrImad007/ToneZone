@@ -1,10 +1,10 @@
 <x-dash-layout >
-    <div class="mx-auto bg-gradient-to-b from-gray-700 via-gray-900 to-black h-full p-12">
-        <form action="/admin/storemusic" method="POST" class="grid grid-cols-[auto_1fr] w-full  gap-8" enctype="multipart/form-data">
+    <div class="mx-auto h-full w-full">
+        <form action="/admin/storemusic" method="POST" class="flex items-center justify-center w-5/6 gap-8" enctype="multipart/form-data">
 
             @csrf
 
-            <div class="flex items-center justify-center w-[300px] aspect-square" >
+            <div class="flex flex-col items-center justify-center w-[300px] aspect-square" >
                 <label for="dropzone-file" class="overflow-hidden shadow-[0_0_15px] flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                     <img src="" alt="" class="" id="img">
                     <div id="textupload" class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -14,33 +14,31 @@
                     </div>
                     <input id="dropzone-file" type="file" name="music_image" class="hidden" />
                 </label>
+                @error('music_image')
+                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                @enderror
             </div>
-            @error('music_image')
-                <span class="text-red-500 text-xs mt-1">{{$message}}</span>
-            @enderror
+            
 
-            <div class="text-white flex flex-col justify-evenly h-full w-1/2">
-                <div>
-                    <label class="font-bold">Music Name</label>
-                    <input type="text" name="music_name" value="{{old('music_name')}}" placeholder="Music Name" class="w-full py-2 px-4 rounded-xl bg-transparent border border-gray-400 outline-none">
+            <div class="text-white flex flex-col justify-around h-full w-1/2 gap-6">
+                <div class="flex flex-col">
+                    <input type="text" name="music_name" value="{{old('music_name')}}" placeholder="Music Name" class="w-full py-2 px-4 rounded-xl bg-transparent border border-gray-400 outline-none focus:ring-yellow-400">
                     {{-- load page if some field are wrong or error --}}
                     @error('music_name')
                         <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                     @enderror
                 </div>
 
-                <div>
-                    <label class="font-bold">Group Name</label>
-                    <input type="text" name="artist_group" value="{{old('artist_group')}}" placeholder="Group Name" class="w-full py-2 px-4 rounded-xl bg-transparent border border-gray-400 outline-none">
+                <div class="flex flex-col">
+                    <input type="text" name="artist_group" value="{{old('artist_group')}}" placeholder="Group Name" class="w-full py-2 px-4 rounded-xl bg-transparent border border-gray-400 outline-none focus:ring-yellow-400">
                     {{-- load page if some field are wrong or error --}}
                     @error('artist_group')
                         <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                     @enderror
                 </div>
 
-                <div>
-                    <label class="font-bold block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Music File</label>
-                    <input name="music_audio" value="{{old('music_audio')}}" class="py-2 px-2 block w-full text-sm text-gray-300 border border-gray-300 rounded-lg cursor-pointer bg-transparent focus:outline-none" id="file_input" type="file">
+                <div class="flex flex-col">
+                    <input name="music_audio" value="{{old('music_audio')}}" class=" px-2 block w-full text-sm text-gray-300 border border-gray-300 rounded-lg cursor-pointer bg-transparent outline-none" id="file_input" type="file">
 
                     @error('music_audio')
                         <span class="text-red-500 text-xs mt-1">{{$message}}</span>
@@ -56,5 +54,7 @@
             </div>
         </form>
     </div>
+
+    <script src="{{asset('js/handleUpladFile.js')}}" defer></script>
 
 </x-dash-layout>

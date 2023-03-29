@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v10.0.4',
-        'version' => '10.0.4.0',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
         'reference' => NULL,
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
@@ -16,6 +16,33 @@
             'reference' => '459f2781e1a08d52ee56b0b1444086e038561e3f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../brick/math',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cloudinary-labs/cloudinary-laravel' => array(
+            'pretty_version' => '2.0.3',
+            'version' => '2.0.3.0',
+            'reference' => 'f331b770b277a75dbde3c61bf1e50096b3e68104',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cloudinary-labs/cloudinary-laravel',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cloudinary/cloudinary_php' => array(
+            'pretty_version' => '2.10.2',
+            'version' => '2.10.2.0',
+            'reference' => '27876ddbbb7a4e57b26503bf4c186defb26b60b1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cloudinary/cloudinary_php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cloudinary/transformation-builder-sdk' => array(
+            'pretty_version' => '1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => '145d0ebc9638a82ec09bed7de57ea89586839bba',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cloudinary/transformation-builder-sdk',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -355,6 +382,15 @@
                 0 => 'v10.3.3',
             ),
         ),
+        'itsgoingd/clockwork' => array(
+            'pretty_version' => 'v5.1.12',
+            'version' => '5.1.12.0',
+            'reference' => 'c9dbdbb1f0efd19bb80f1080ef63f1b9b1bc3b1b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../itsgoingd/clockwork',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -371,8 +407,8 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v10.0.4',
-            'version' => '10.0.4.0',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
             'reference' => NULL,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
@@ -715,8 +751,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1210,6 +1246,15 @@
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'teapot/status-code' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '39cce90f07bf2a906d19e6de9418e0382e75e0bf',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../teapot/status-code',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',

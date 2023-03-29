@@ -1,5 +1,5 @@
-<footer id="footer" class="hidden bg-yellow-400 col-span-6 p-4 grid grid-cols-3 gap-6 fixed z-10 w-full bottom-0">
-    <audio controls id="footerMusic" src="" hidden></audio>
+<footer id="footer" class="hidden bg-yellow-400 col-span-6 p-4 grid grid-cols-3 place-items-center gap-6 fixed z-10 w-full bottom-0">
+    <audio controls id="footerMusic" preload="metadata" src="" hidden></audio>
     <div class="flex items-center">
         <div class="overflow-hidden rounded-xl mr-4">
             <img id="footerImg" class="h-14 w-14 flex-shrink-0" src="{{asset('images/cover 1.jpg')}}" alt="" />
@@ -59,14 +59,14 @@
             </button>
         </div>
         <div class="flex items-center">
-            <span class="text-xs text-black font-light">4:18</span>
-            <div class="overflow-hidden relative flex-1 mx-2 rounded">
-                <div class="border-b-4 border-gray-400 rounded"></div>
-                <div
-                    class="absolute inset-x-0 top-0 -translate-x-48 border-b-4 border-black rounded transform hover:border-green-200">
-                </div>
-            </div>
-            <span class="text-xs text-black font-light">5:13</span>
+            <span id="startMusicDuration" class="text-xs text-black font-light"></span>
+            <input type="range" max="100" id="progressBar" class="w-full h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer">
+            <span id="endMusicDuration" class="text-xs text-black font-light"></span>
         </div>
+    </div>
+    <div class="flex flex-1 items-center space-x-1">
+        <i class="fa-solid fa-volume-xmark cursor-pointer" id="mute"></i>
+        <input type="range" min="0" max="100" value="2.5" step="0.5" id="volumInp" class=" h-1 bg-gray-400 rounded-lg appearance-none cursor-pointer ">
+        <i class="fa-solid fa-volume-high cursor-pointer" id="unmute"></i>
     </div>
 </footer>

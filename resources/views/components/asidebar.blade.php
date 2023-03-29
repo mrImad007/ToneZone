@@ -1,66 +1,57 @@
 
-<nav class=" relative">
-    <div class="col-span-1 row-span-3 bg-gray-900 pt-4 h-full fixed">
+<nav class="relative">
+    <div class="col-span-1 bg-black row-span-3 pt-4 h-full fixed">
         <div class="px-6 mb-2">
-            <div class="w-full flex justify-around items-center gap-4">
-                <img src="{{asset('images/logo.png')}}" alt="" class="w-12">
-                <h1 class="font-bold text-yellow-300 text-xl">__ToneZone__</h1>
-            </div>
+            <a href="/" class="w-full flex justify-around items-center gap-4">
+                <img src="{{asset('images/logo.png')}}" alt="" class="w-10">
+                <h1 class="font-bold text-yellow-300 text-xl hidden md:block">MeloLibrary</h1>
+            </a>
         </div>
-        <div class="px-2 mb-2 mt-4">
+        <div class="px-2 mb-4 mt-6">
             <ul class="text-gray-400">
                 <a href="/">
-                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-sm hover:text-yellow-400">
-                        Home
+                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-md hover:text-yellow-400">
+                        <i class="fa-solid fa-house mr-2"></i> <span class="hidden md:block"> Home</span>
                     </li>
                 </a>
                 <a href="/playlist">
-                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-sm hover:text-yellow-400">
-                        PlayLists
+                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-md hover:text-yellow-400">
+                        <i class="fa-solid fa-list mr-2"></i><span class="hidden md:block">PlayList</span>
                     </li>
                 </a>
-                <a href="/album">
-                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-sm hover:text-yellow-400">
-                        Albums
+                <a href="/artist">
+                    <li class=" flex font-semibold items-center px-4 py-2 rounded text-md hover:text-yellow-400">
+                        <i class="fa-solid fa-users mr-2"></i><span class="hidden md:block">Artist</span>
                     </li>
                 </a>
             </ul>
         </div>
         <div>
-            <hr class="border-gray-200 mx-6 mb-3" />
+            <hr class="border-gray-600 mx-6 mb-4" />
             <div class="mb-3">
-                <div class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
+                <div class="px-6 py-2 flex items-center text-sm text-gray-400 hover:text-yellow-400 group">
                     <a href="/createPlaylist" class="flex items-center">
-                        <svg class="bg-white fill-current h-8 mr-4 p-1 text-black w-8" shape-rendering="crispEdges"
-                            viewBox="0 0 36 36">
-                            <path d="m28 20h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
-                        </svg>
-                        Create Playlist
+                        <i class="fa-solid fa-plus p-1 mr-2 bg-gray-400 text-black group-hover:bg-yellow-400"></i>
+                        <span class="hidden md:block" title="Create Playlist">Create Playlist</span>
                     </a>
                 </div>
-                <div class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
-                    <a href="/createMusic" class="flex items-center">
-                        <svg class="bg-white fill-current h-8 mr-4 p-1 text-black w-8" shape-rendering="crispEdges"
-                            viewBox="0 0 36 36">
-                            <path d="m28 20h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
-                        </svg>
-                        Create Music
+                <div class="px-6 py-2 flex items-center text-sm text-gray-400 hover:text-yellow-400">
+                    <a href="/likedmusic" class="flex items-center">
+                        <i class="fa-solid fa-heart text-xl mr-4"></i>
+                        <span class="hidden md:block" title="Liked Songs">Liked Songs</span>
                     </a>
-                </div>
-                <div class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
-                    <svg class="bg-liked-songs fill-current h-8 mr-4 p-2 w-8" viewBox="0 0 20 20">
-                        <path
-                            d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z" />
-                    </svg>
-                    Liked Songs
                 </div>
             </div>
-            <hr class="border-gray-200 mx-6 mb-3" />
-            <div class="px-6 mb-2 text-white h-40 overflow-y-scroll">
-                <ul class="flex flex-col gap-2 ">
-                    @foreach($playlists as $playlist)
-                        <a href="/{{$playlist->name}}/{{$playlist->id}}"><li>{{$playlist->name}}</li></a>
-                    @endforeach
+            <hr class="border-gray-600 mx-6 mb-3" />
+            <div class="px-6 mb-2 text-white h-40 overflow-y-scroll scrollbar-hide">
+                <ul class="flex flex-col gap-2 ">   
+                    @auth   
+                        @if ($playlists)    
+                            @foreach($playlists as $playlist)
+                                <a href="/playlist/{{$playlist->id}}"><li>{{$playlist->name}}</li></a>
+                            @endforeach
+                        @endif
+                    @endauth
                 </ul>
             </div>
         </div>

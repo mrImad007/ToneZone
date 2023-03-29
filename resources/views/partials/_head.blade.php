@@ -8,3 +8,9 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/main.js', 'resources/css/app.css']) --}}
 <title>MeloLibrary</title>
+<style>
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+    }
+</style>
